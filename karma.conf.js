@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/blobbie'),
+      dir: require('path').join(__dirname, './coverage/generative-angular'),
       subdir: '.',
       reporters: [
         { type: 'html' },
