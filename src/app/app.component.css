@@ -1,7 +1,6 @@
 .page {
-  position: relative;
-  width: 100vmax;
-  height: 100vh;
+  height: 100vmin;
+  display: flex;
   /*for firefox*/
   overflow: hidden;
 }
@@ -12,14 +11,15 @@ section {
   align-items: center;
   justify-content: center;
   flex-grow: 1;
-  height: 100vh;
 }
 
 aside {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 :host-context([data-theme="dark"]) aside {
