@@ -110,7 +110,6 @@ export class AppComponent {
                         'data-theme',
                         dark ? 'dark' : 'light'
                     );
-                    this.document.querySelector('meta[name="theme-color"]')?.setAttribute('content',  dark ? '#123456' : '#fff');
                 }
             );
     }
