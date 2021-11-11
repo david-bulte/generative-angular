@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --configuration production --base-href https://david-bulte.github.io/generative-angular/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
