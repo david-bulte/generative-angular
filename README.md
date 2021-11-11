@@ -7,6 +7,17 @@ interest and move on to the next shiny thing before finishing anything. So to ma
 I am sticking to the tool I know best (angular and RXJS) and see how far that brings me in 
 combination with SVG. Turns out quite far as SVG and RXJS seem to complement each other really well.
 
+Here are some examples.
+
+![img-1](assets/img/img-1.png)
+![img-2](assets/img/img-2.png)
+![img-3](assets/img/img-3.png)
+![img-4](assets/img/img-4.png)
+![img-5](assets/img/img-5.png)
+![img-6](assets/img/img-6.png)
+![img-7](assets/img/img-7.png)
+![img-8](assets/img/img-8.gif)
+
 ## Demo
 
 [https://david-bulte.github.io/generative-angular/](https://david-bulte.github.io/generative-angular/) (best viewed on desktop)
