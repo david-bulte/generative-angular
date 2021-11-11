@@ -37,7 +37,11 @@
   </section>
 
   <aside>
+
     <form [formGroup]="form" *ngIf="formVisible">
+
+      <i class="bi bi-x-lg" (click)="toggleFormVisible()" title="Close config"></i>
+
       <label for="size">
         Size
         <input type="number" name="size" formControlName="size" />
@@ -136,20 +140,23 @@
       </fieldset>
 
       <button (click)="next()" [disabled]="animating">Next</button>
-      <button (click)="download()">Download</button>
+      <button class="secondary" (click)="toggleFormVisible()">Close</button>
     </form>
   </aside>
 
   <i
-    class="bi-arrows-fullscreen"
+    class="bi bi-arrows-fullscreen"
     [class.animated]="!fullscreenClicked"
     (click)="toggleFullscreen(page)"
+    title="Toggle fullscreen"
     *ngIf="fullscreenEnabled"
   ></i>
 
   <i
-    class="bi-gear"
+    class="bi bi-gear"
     [class.animated]="!formVisibleClicked"
     (click)="toggleFormVisible()"
+    title="Open config"
+    *ngIf="!formVisible"
   ></i>
 </div>

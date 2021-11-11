@@ -76,6 +76,8 @@ aside {
 form {
   width: 15rem;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
 input.ng-invalid {
@@ -87,13 +89,16 @@ div.error {
   margin-top: -0.5rem;
 }
 
+i.bi {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
 i.bi-gear,
 i.bi-arrows-fullscreen {
   position: absolute;
   bottom: 0;
-  font-size: 2rem;
   margin: 2rem;
-  cursor: pointer;
 }
 
 i.bi-gear {
@@ -106,4 +111,9 @@ i.bi-arrows-fullscreen {
 
 i.bi-gear.animated {
   animation: pulse 6s 5 ease;
+}
+
+i.bi-x-lg {
+  align-self: flex-end;
+  margin-top: -1rem;
 }
