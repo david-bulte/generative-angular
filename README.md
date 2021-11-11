@@ -10,17 +10,24 @@ combination with SVG. Turns out quite far as SVG and RXJS seem to complement eac
 Here are some examples.
 
 ![img-1](assets/img/img-1.png)
+&nbsp;
 ![img-2](assets/img/img-2.png)
+&nbsp;
 ![img-3](assets/img/img-3.png)
+&nbsp;
 ![img-4](assets/img/img-4.png)
+&nbsp;
 ![img-5](assets/img/img-5.png)
+&nbsp;
 ![img-6](assets/img/img-6.png)
+&nbsp;
 ![img-7](assets/img/img-7.png)
+&nbsp;
 ![img-8](assets/img/img-8.gif)
 
-## Demo
+## Make your own
 
-[https://david-bulte.github.io/generative-angular/](https://david-bulte.github.io/generative-angular/) (best viewed on desktop)
+The application allows you to create your own art (there I said it). Have a look at [https://david-bulte.github.io/generative-angular/](https://david-bulte.github.io/generative-angular/) (best viewed on desktop) and have fun!
 
 ## Lessons Learned
 
@@ -34,5 +41,6 @@ Autodeploying a project to github-pages with github actions is still somewhat ob
 
 - Finish 'Lessons Learned'
 - Make more mobile-friendly
+- Add some validation
 - Watching rectangles and circles dance on screen is nice, my next goal though is to print them on paper
 (and end up in a museum haha). So watch out this space for some pen plotter experiments. 
