@@ -101,15 +101,17 @@ export class AppComponent {
             })
         );
 
-        let darkControl = this.form.get('dark');
+        const darkControl = this.form.get('dark');
         darkControl?.valueChanges
             .pipe(startWith(darkControl?.value))
-            .subscribe((dark) =>
-                this.renderer.setAttribute(
-                    this.document.documentElement,
-                    'data-theme',
-                    dark ? 'dark' : 'light'
-                )
+            .subscribe((dark) => {
+                    this.renderer.setAttribute(
+                        this.document.documentElement,
+                        'data-theme',
+                        dark ? 'dark' : 'light'
+                    );
+                    this.document.querySelector('meta[name="theme-color"]')?.setAttribute('content',  dark ? '#123456' : '#fff');
+                }
             );
     }
 
