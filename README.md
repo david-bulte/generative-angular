@@ -11,8 +11,17 @@ combination with SVG. Turns out quite far as SVG and RXJS seem to complement eac
 
 [https://david-bulte.github.io/generative-angular/](https://david-bulte.github.io/generative-angular/) (best viewed on desktop)
 
+## Lessons Learned
+
+### Angular and SVG
+todo
+
+### Github pages
+Autodeploying a project to github-pages with github actions is still somewhat obscure to me. [This](https://dev.to/rodrigokamada/hosting-an-angular-application-on-github-pages-using-github-actions-5ag8) article and the accompanying repo helped me a lot.
+
 ## Next steps
 
-- Add a 'Lessons Learned'
+- Finish 'Lessons Learned'
+- Make more mobile-friendly
 - Watching rectangles and circles dance on screen is nice, my next goal though is to print them on paper
 (and end up in a museum haha). So watch out this space for some pen plotter experiments. 
