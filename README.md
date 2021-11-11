@@ -41,6 +41,5 @@ Autodeploying a project to github-pages with github actions is still somewhat ob
 
 - Finish 'Lessons Learned'
 - Make more mobile-friendly
-- Add some validation
 - Watching rectangles and circles dance on screen is nice, my next goal though is to print them on paper
 (and end up in a museum haha). So watch out this space for some pen plotter experiments. 

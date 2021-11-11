@@ -6,7 +6,7 @@ import {
   Inject,
   Renderer2,
 } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {
   BehaviorSubject,
   combineLatest,
@@ -40,12 +40,12 @@ export class AppComponent {
     @Inject(DOCUMENT) private document: Document
   ) {
     this.form = new FormGroup({
-      width: new FormControl(8),
-      size: new FormControl(100),
-      ratio: new FormControl(1),
+      width: new FormControl(8, [Validators.required, Validators.min(1)]),
+      size: new FormControl(100, [Validators.required, Validators.min(1)]),
+      ratio: new FormControl(1, [Validators.required, Validators.min(1), Validators.max(7)]),
       fill: new FormControl(false),
       animate: new FormControl(false),
-      strokeWidth: new FormControl(1),
+      strokeWidth: new FormControl(1, Validators.min(0.1)),
       dark: new FormControl(true),
       colored: new FormControl(true),
       rotate: new FormControl(true),

@@ -30,32 +30,6 @@ aside {
   background-color: #fcfcfd;
 }
 
-i.bi-gear,
-i.bi-arrows-fullscreen {
-  position: absolute;
-  bottom: 0;
-  font-size: 2rem;
-  margin: 2rem;
-  cursor: pointer;
-}
-
-i.bi-gear {
-  right: 0;
-}
-
-i.bi-arrows-fullscreen {
-  left: 0;
-}
-
-i.bi-gear.animated {
-  animation: pulse 6s 5 ease;
-}
-
-form {
-  width: 15rem;
-  padding: 2rem;
-}
-
 .rect,
 .circle {
   transform-box: fill-box;
@@ -97,4 +71,39 @@ form {
   100% {
     transform: scale(1);
   }
+}
+
+form {
+  width: 15rem;
+  padding: 2rem;
+}
+
+input.ng-invalid {
+  border-color: var(--form-element-invalid-border-color);
+}
+
+div.error {
+  color: var(--form-element-invalid-border-color);
+  margin-top: -0.5rem;
+}
+
+i.bi-gear,
+i.bi-arrows-fullscreen {
+  position: absolute;
+  bottom: 0;
+  font-size: 2rem;
+  margin: 2rem;
+  cursor: pointer;
+}
+
+i.bi-gear {
+  right: 0;
+}
+
+i.bi-arrows-fullscreen {
+  left: 0;
+}
+
+i.bi-gear.animated {
+  animation: pulse 6s 5 ease;
 }
