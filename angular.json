@@ -30,9 +30,6 @@
               "node_modules/@picocss/pico/css/pico.css",
               "src/styles.css"
             ],
-            "scripts": [
-              "node_modules/@georgedoescode/spline/spline.js"
-            ]
           },
           "configurations": {
             "production": {
