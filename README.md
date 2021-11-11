@@ -9,7 +9,7 @@ combination with SVG. Turns out quite far as SVG and RXJS seem to complement eac
 
 ## Demo
 
-Have a look at the stackblitz.
+[https://david-bulte.github.io/generative-angular/](https://david-bulte.github.io/generative-angular/)
 
 ## Next steps
 
