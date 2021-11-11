@@ -13,5 +13,6 @@ combination with SVG. Turns out quite far as SVG and RXJS seem to complement eac
 
 ## Next steps
 
-Watching rectangles and circles dance on screen is nice, my next goal though is to print them on paper
+- Add a 'Lessons Learned'
+- Watching rectangles and circles dance on screen is nice, my next goal though is to print them on paper
 (and end up in a museum haha). So watch out this space for some pen plotter experiments. 
