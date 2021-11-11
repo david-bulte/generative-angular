@@ -9,7 +9,6 @@ combination with SVG. Turns out quite far as SVG and RXJS seem to complement eac
 
 Here are some examples.
 
-<img src="assets/img/img-1.png" alt="img-1" width="200">
 ![img-1](assets/img/img-1.png)
 ![img-2](assets/img/img-2.png)
 ![img-3](assets/img/img-3.png)
