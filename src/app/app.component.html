@@ -11,7 +11,7 @@
           class="rect"
           [attr.x]="point.x"
           [attr.y]="point.y"
-          [attr.transform]="'rotate(' + point.rotate + ')'"
+          [attr.transform]="point.transform"
           [attr.width]="point.width"
           [attr.height]="point.height"
           [attr.stroke]="point.stroke"
@@ -57,10 +57,9 @@
       </label>
 
       <label for="width">
-        Width
-        <input type="number" name="width" formControlName="width" min="1" />
-        <div class="error" *ngIf="form.get('width')?.hasError('min')">Minimum 1</div>
-        <div class="error" *ngIf="form.get('width')?.hasError('required')">Required</div>
+        Scale
+        <input type="number" name="scale" formControlName="scale" step="0.1" min="0.1" />
+        <div class="error" *ngIf="form.get('scale')?.hasError('min')">Minimum 0.1</div>
       </label>
 
       <label for="strokeWidth">
@@ -109,11 +108,6 @@
         <label for="colored">
           <input type="checkbox" id="colored" formControlName="colored" />
           Colored
-        </label>
-
-        <label for="bounce">
-          <input type="checkbox" id="bounce" formControlName="bounce" />
-          Bounce
         </label>
 
         <fieldset>

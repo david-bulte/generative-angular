@@ -26,6 +26,7 @@ export class AppComponent {
             width: new FormControl(8, [Validators.required, Validators.min(1)]),
             size: new FormControl(100, [Validators.required, Validators.min(1)]),
             ratio: new FormControl(1, [Validators.required, Validators.min(1), Validators.max(7)]),
+            scale: new FormControl(1, [Validators.min(0.1)]),
             fill: new FormControl(false),
             animate: new FormControl(false),
             strokeWidth: new FormControl(1, Validators.min(0.1)),
@@ -76,6 +77,10 @@ export class AppComponent {
                         const stroke =
                             strokeColor ||
                             random(['red', 'blue', 'pink']);
+                        const rotate = Math.floor(config.rotate ? Math.random() * 90 : 0);
+                        const scale = config.scale || 1;
+                        const transform = `rotate(${rotate}) scale(${config.scale})`;
+
                         return {
                             x: x * (config.size / cellsPerRow),
                             y: y * (config.size / cellsPerRow),
@@ -84,7 +89,7 @@ export class AppComponent {
                             fill: config.fill ? stroke : 'transparent',
                             width: config.width,
                             height: config.width,
-                            rotate: Math.floor(config.rotate ? Math.random() * 90 : 0),
+                            transform,
                             bounce: config.bounce,
                             type:
                                 config.type !== 'both'
