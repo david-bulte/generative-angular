@@ -1,7 +1,7 @@
 # Generative Angular - First Steps
 
 Everybody seems to be into generative art these days so I thought I gave it a go. 
-Picking a framework or platform can be overwhelming - should I use Processing, PS5, Greensock... 
+Picking a framework or platform can be overwhelming - should I use Processing, p5.js, Greensock... 
 Canvas, SVG, WebGL, plain css, houdini?? I know myself, if I dwell on this for too long I will loose 
 interest and move on to the next shiny thing before finishing anything. So to make a headstart 
 I am sticking to the tool I know best (angular and RXJS) and see how far that brings me in 
