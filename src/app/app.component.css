@@ -98,20 +98,22 @@ i.bi {
   cursor: pointer;
 }
 
-i.bi-gear,
-i.bi-arrows-fullscreen {
-  position: absolute;
-  margin: 2rem;
-}
-
 i.bi-gear {
+  position: absolute;
+  margin-right: 2rem;
+  margin-bottom: 1.5rem;
   right: 0;
   bottom: 0;
+  font-size: 2rem;
 }
 
 i.bi-arrows-fullscreen {
+  position: absolute;
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
   left: 0;
   bottom: 0;
+  font-size: 1.5rem;
 }
 
 i.bi-gear.animated {
