@@ -137,7 +137,7 @@
             <button class="secondary" (click)="toggleFormVisible()">Close</button>
         </form>
 
-        <div class="more-info">
+        <div class="more-info" *ngIf="formVisible">
             <a class="secondary" href="https://twitter.com/david_bulte">
                 <i class="bi bi-twitter"></i>
             </a>
