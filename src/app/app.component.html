@@ -1,156 +1,166 @@
 <div class="page" #page>
-  <section>
-    <svg
-      [attr.viewBox]="'-5 -5 ' + (100 + 15) + ' ' + (100 + 15)"
-      [style.width]="'80%'"
-      [style.height]="'80%'"
-      xmlns:svg="http://www.w3.org/1999/html"
-    >
-      <svg:g *ngFor="let point of points$ | async">
-        <svg:rect
-          class="rect"
-          [attr.x]="point.x"
-          [attr.y]="point.y"
-          [attr.width]="point.width"
-          [attr.height]="point.height"
-          [attr.transform]="point.transform"
-          [attr.stroke]="point.stroke"
-          [attr.fill]="point.fill"
-          [attr.stroke-width]="point.strokeWidth"
-          [class.bounce]="point.bounce"
-          *ngIf="point.type === 'rect'"
-        ></svg:rect>
-        <svg:circle
-          class="circle"
-          [attr.cx]="point.x"
-          [attr.cy]="point.y"
-          [attr.r]="point.width / 2"
-          [attr.transform]="point.transform"
-          [attr.stroke]="point.stroke"
-          [attr.fill]="point.fill"
-          [attr.stroke-width]="point.strokeWidth"
-          [class.bounce]="point.bounce"
-          *ngIf="point.type === 'circle'"
-        ></svg:circle>
-      </svg:g>
-    </svg>
-  </section>
+    <section>
+        <svg
+                [attr.viewBox]="'-5 -5 ' + (100 + 15) + ' ' + (100 + 15)"
+                [style.width]="'80%'"
+                [style.height]="'80%'"
+                xmlns:svg="http://www.w3.org/1999/html"
+        >
+            <svg:g *ngFor="let point of points$ | async">
+                <svg:rect
+                        class="rect"
+                        [attr.x]="point.x"
+                        [attr.y]="point.y"
+                        [attr.width]="point.width"
+                        [attr.height]="point.height"
+                        [attr.transform]="point.transform"
+                        [attr.stroke]="point.stroke"
+                        [attr.fill]="point.fill"
+                        [attr.stroke-width]="point.strokeWidth"
+                        [class.bounce]="point.bounce"
+                        *ngIf="point.type === 'rect'"
+                ></svg:rect>
+                <svg:circle
+                        class="circle"
+                        [attr.cx]="point.x"
+                        [attr.cy]="point.y"
+                        [attr.r]="point.width / 2"
+                        [attr.transform]="point.transform"
+                        [attr.stroke]="point.stroke"
+                        [attr.fill]="point.fill"
+                        [attr.stroke-width]="point.strokeWidth"
+                        [class.bounce]="point.bounce"
+                        *ngIf="point.type === 'circle'"
+                ></svg:circle>
+            </svg:g>
+        </svg>
+    </section>
 
-  <aside>
+    <aside>
 
-    <form [formGroup]="form" *ngIf="formVisible">
+        <form [formGroup]="form" *ngIf="formVisible">
 
-      <i class="bi bi-x-lg" (click)="toggleFormVisible()" title="Close config"></i>
+            <i class="bi bi-x" (click)="toggleFormVisible()" title="Close config"></i>
 
-      <label for="size">
-        Size
-        <input type="number" name="size" formControlName="size" />
-        <div class="error" *ngIf="form.get('size')?.hasError('min')">Minimum 1</div>
-        <div class="error" *ngIf="form.get('size')?.hasError('required')">Required</div>
-      </label>
+            <label for="size">
+                Size
+                <input type="number" name="size" formControlName="size"/>
+                <div class="error" *ngIf="form.get('size')?.hasError('min')">Minimum 1</div>
+                <div class="error" *ngIf="form.get('size')?.hasError('required')">Required</div>
+            </label>
 
-      <label for="ratio">
-        Ratio
-        <input type="number" name="ratio" formControlName="ratio" min="1" max="7"/>
-        <div class="error" *ngIf="form.get('ratio')?.hasError('min')">Minimum 1</div>
-        <div class="error" *ngIf="form.get('ratio')?.hasError('max')">Maximum 7</div>
-        <div class="error" *ngIf="form.get('ratio')?.hasError('required')">Required</div>
-      </label>
+            <label for="ratio">
+                Ratio
+                <input type="number" name="ratio" formControlName="ratio" min="1" max="7"/>
+                <div class="error" *ngIf="form.get('ratio')?.hasError('min')">Minimum 1</div>
+                <div class="error" *ngIf="form.get('ratio')?.hasError('max')">Maximum 7</div>
+                <div class="error" *ngIf="form.get('ratio')?.hasError('required')">Required</div>
+            </label>
 
-      <label for="width">
-        Scale
-        <input type="number" name="scale" formControlName="scale" step="0.1" min="0.1" />
-        <div class="error" *ngIf="form.get('scale')?.hasError('min')">Minimum 0.1</div>
-      </label>
+            <label for="width">
+                Scale
+                <input type="number" name="scale" formControlName="scale" step="0.1" min="0.1"/>
+                <div class="error" *ngIf="form.get('scale')?.hasError('min')">Minimum 0.1</div>
+            </label>
 
-      <label for="strokeWidth">
-        Stroke width
-        <input
-          type="number"
-          name="strokeWidth"
-          formControlName="strokeWidth"
-          step="0.1"
-          min="0.1"
-        />
-        <div class="error" *ngIf="form.get('strokeWidth')?.hasError('min')">Minimum 0.1</div>
-      </label>
+            <label for="strokeWidth">
+                Stroke width
+                <input
+                        type="number"
+                        name="strokeWidth"
+                        formControlName="strokeWidth"
+                        step="0.1"
+                        min="0.1"
+                />
+                <div class="error" *ngIf="form.get('strokeWidth')?.hasError('min')">Minimum 0.1</div>
+            </label>
 
-      <fieldset>
-        <label for="animate">
-          <input
-            type="checkbox"
-            id="animate"
-            name="animate"
-            formControlName="animate"
-          />
-          Animate
-        </label>
+            <fieldset>
+                <label for="animate">
+                    <input
+                            type="checkbox"
+                            id="animate"
+                            name="animate"
+                            formControlName="animate"
+                    />
+                    Animate
+                </label>
 
-        <label for="dark">
-          <input type="checkbox" id="dark" name="dark" formControlName="dark" />
-          Dark
-        </label>
+                <label for="dark">
+                    <input type="checkbox" id="dark" name="dark" formControlName="dark"/>
+                    Dark
+                </label>
 
-        <label for="fill">
-          <input type="checkbox" id="fill" name="fill" formControlName="fill" />
-          Fill
-        </label>
+                <label for="fill">
+                    <input type="checkbox" id="fill" name="fill" formControlName="fill"/>
+                    Fill
+                </label>
 
-        <label for="rotate">
-          <input
-            type="checkbox"
-            id="rotate"
-            name="rotate"
-            formControlName="rotate"
-          />
-          Rotate
-        </label>
+                <label for="rotate">
+                    <input
+                            type="checkbox"
+                            id="rotate"
+                            name="rotate"
+                            formControlName="rotate"
+                    />
+                    Rotate
+                </label>
 
-        <label for="colored">
-          <input type="checkbox" id="colored" formControlName="colored" />
-          Colored
-        </label>
+                <label for="colored">
+                    <input type="checkbox" id="colored" formControlName="colored"/>
+                    Colored
+                </label>
 
-        <fieldset>
-          <legend>Type</legend>
-          <label for="circle">
-            <input
-              type="radio"
-              id="small"
-              value="circle"
-              formControlName="type"
-            />
-            Circle
-          </label>
-          <label for="rect">
-            <input type="radio" id="rect" value="rect" formControlName="type" />
-            Rect
-          </label>
-          <label for="both">
-            <input type="radio" id="both" value="both" formControlName="type" />
-            Both
-          </label>
-        </fieldset>
-      </fieldset>
+                <fieldset>
+                    <legend>Type</legend>
+                    <label for="circle">
+                        <input
+                                type="radio"
+                                id="small"
+                                value="circle"
+                                formControlName="type"
+                        />
+                        Circle
+                    </label>
+                    <label for="rect">
+                        <input type="radio" id="rect" value="rect" formControlName="type"/>
+                        Rect
+                    </label>
+                    <label for="both">
+                        <input type="radio" id="both" value="both" formControlName="type"/>
+                        Both
+                    </label>
+                </fieldset>
+            </fieldset>
 
-      <button (click)="next()" [disabled]="animating">Next</button>
-      <button class="secondary" (click)="toggleFormVisible()">Close</button>
-    </form>
-  </aside>
+            <button (click)="next()" [disabled]="animating">Next</button>
+            <button class="secondary" (click)="toggleFormVisible()">Close</button>
+        </form>
 
-  <i
-    class="bi bi-arrows-fullscreen"
-    [class.animated]="!fullscreenClicked"
-    (click)="toggleFullscreen(page)"
-    title="Toggle fullscreen"
-    *ngIf="fullscreenEnabled"
-  ></i>
+        <div class="more-info">
+            <a class="secondary" href="https://twitter.com/david_bulte">
+                <i class="bi bi-twitter"></i>
+            </a>
+            <a class="secondary" href="https://github.com/david-bulte/generative-angular">
+                <i class="bi bi-github"></i>
+            </a>
+        </div>
+    </aside>
 
-  <i
-    class="bi bi-gear"
-    [class.animated]="!formVisibleClicked"
-    (click)="toggleFormVisible()"
-    title="Open config"
-    *ngIf="!formVisible"
-  ></i>
+    <i
+            class="bi bi-arrows-fullscreen"
+            [class.animated]="!fullscreenClicked"
+            (click)="toggleFullscreen(page)"
+            title="Toggle fullscreen"
+            *ngIf="fullscreenEnabled"
+    ></i>
+
+    <i
+            class="bi bi-gear"
+            [class.animated]="!formVisibleClicked"
+            (click)="toggleFormVisible()"
+            title="Open config"
+            *ngIf="!formVisible"
+    ></i>
+
 </div>

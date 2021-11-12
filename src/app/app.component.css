@@ -97,23 +97,39 @@ i.bi {
 i.bi-gear,
 i.bi-arrows-fullscreen {
   position: absolute;
-  bottom: 0;
   margin: 2rem;
 }
 
 i.bi-gear {
   right: 0;
+  bottom: 0;
 }
 
 i.bi-arrows-fullscreen {
   left: 0;
+  bottom: 0;
 }
 
 i.bi-gear.animated {
   animation: pulse 6s 5 ease;
 }
 
-i.bi-x-lg {
+i.bi-x {
   align-self: flex-end;
   margin-top: -1rem;
+}
+
+.more-info {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1rem;
+  display: flex;
+}
+
+.more-info > * {
+  margin-left: 0.5rem;
+}
+
+i.bi-github, i.bi-twitter {
+  font-size: 1.5rem;
 }
