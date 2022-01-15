@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as FileSaver from 'file-saver';
-import { combineLatest, interval, Observable, of, Subject, timer } from 'rxjs';
+import { combineLatest, interval, Observable, Subject, timer } from 'rxjs';
 import { map, startWith, switchMap } from 'rxjs/operators';
 
 @Component({
@@ -23,8 +23,7 @@ export class AppComponent {
   @ViewChild('downloadHandle') downloadRef!: ElementRef<HTMLDivElement>;
 
   form: FormGroup;
-  points$: Observable<any>;
-  layers$ = of(['red', 'blue', 'pink', 'black']);
+  layers$: Observable<Layer[]>;
   formVisible = false;
   formVisibleClicked = false;
   fullscreenClicked = false;
@@ -63,14 +62,23 @@ export class AppComponent {
     const config$ = this.form.valueChanges.pipe(startWith(this.form.value));
     const next$ = this.next$$.pipe(startWith(null));
 
-    this.points$ = combineLatest([config$, animate$, next$]).pipe(
+    this.layers$ = combineLatest([config$, animate$, next$]).pipe(
       map(([config]) => {
+
+        const layers: {[color in Color]: Layer} = {
+          red: { name: 'red', points: [] },
+          blue: { name: 'blue', points: [] },
+          pink: { name: 'pink', points: [] },
+          white: { name: 'white', points: [] },
+          black: { name: 'black', points: [] },
+        };
+
         const cellsPerRow = Math.floor(Math.sqrt(config.size)) * config.ratio;
         const rows: any[][] = Array(cellsPerRow).fill(
           Array(cellsPerRow).fill(null)
         );
 
-        let strokeColor: string | null = null;
+        let strokeColor: Color | null = null;
 
         if (config.colored) {
           let sameColor = Math.floor(Math.random() * 5) === 0;
@@ -90,9 +98,9 @@ export class AppComponent {
           strokeColor = config.dark ? 'white' : 'black';
         }
 
-        return rows.flatMap((row, x) => {
+        const points: Point[] = rows.flatMap((row, x) => {
           return row.map((cell, y) => {
-            const stroke = strokeColor || random(['red', 'blue', 'pink']);
+            const stroke: Color = strokeColor || random(['red', 'blue', 'pink']);
             const rotate = Math.floor(config.rotate ? Math.random() * 90 : 0);
             const scale = config.scale || 1;
             const coorX = x * (config.size / cellsPerRow);
@@ -113,7 +121,6 @@ export class AppComponent {
             ]
               .filter((transformation) => !!transformation)
               .join(' ');
-
 
             return {
               x: coorX,
@@ -138,6 +145,12 @@ export class AppComponent {
             };
           });
         });
+
+        points.forEach(point => {
+          layers[point.stroke].points.push(point);
+        })
+
+        return Object.values(layers);
       })
     );
 
@@ -212,13 +225,13 @@ export class AppComponent {
       (<Element>svg).removeAttribute('height');
 
       const transform = (<Element>svg).getAttribute(
-          'data-inkscape-transform'
+        'data-inkscape-transform'
       ) as string;
       (<Element>svg).removeAttribute('data-inkscape-transform');
       (<Element>svg).setAttribute('transform', transform);
 
       const width = (<Element>svg).getAttribute(
-          'data-inkscape-width'
+        'data-inkscape-width'
       ) as string;
       (<Element>svg).removeAttribute('data-inkscape-width');
       (<Element>svg).setAttribute('width', width);
@@ -247,4 +260,30 @@ export class AppComponent {
 
 function random<T>(array: T[] = []) {
   return array[Math.floor(Math.random() * array.length)];
+}
+
+type Color = 'red' | 'blue' | 'pink' | 'black' | 'white'
+
+interface Layer {
+  name: Color;
+  points: Point[];
+}
+
+interface Point {
+  x: number;
+  y: number;
+  centerX: number;
+  centerY: number;
+  stroke: Color;
+  strokeWidth: number;
+  fill: Color | 'transparent',
+  width: number;
+  height: number;
+  transform: string;
+  transformOrigin: string;
+  inkscapeTransform: string;
+  inkscapeWidth: number;
+  bounce: boolean;
+  showCenter: boolean;
+  type: string;
 }
