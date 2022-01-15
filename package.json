@@ -22,6 +22,7 @@
     "@angular/router": "~13.1.1",
     "@georgedoescode/spline": "^1.0.1",
     "@picocss/pico": "^1.4.1",
+    "file-saver": "^2.0.5",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -30,6 +31,7 @@
     "@angular-devkit/build-angular": "~13.1.2",
     "@angular/cli": "~13.1.2",
     "@angular/compiler-cli": "~13.1.1",
+    "@types/file-saver": "^2.0.4",
     "@types/jasmine": "~3.8.0",
     "@types/node": "^12.11.1",
     "jasmine-core": "~3.8.0",

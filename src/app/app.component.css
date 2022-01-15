@@ -139,3 +139,7 @@ i.bi-x {
 i.bi-github, i.bi-twitter {
   font-size: 1.5rem;
 }
+
+.download {
+  display: none;
+}
