@@ -1,0 +1,62 @@
+<svg
+    #svg
+    width="100vh"
+    height="100vh"
+    viewBox="0 0 200 200"
+    style="background-color: fuchsia;"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <defs>
+        <clipPath id="svgPath">
+            <!--            <rect x="30" y="30" width="100" height="100"></rect>-->
+
+            <circle stroke="#000000" stroke-miterlimit="10" cx="100" cy="100" r="50">
+                <animate
+                        attributeName="r"
+                        values="50;100;50"
+                        begin="0s" dur="10s"
+                        repeatCount="indefinite"/>
+            </circle>
+
+        </clipPath>
+    </defs>
+
+
+    <svg:g clip-path="url(#svgPath)">
+
+        <line x1="0" [attr.y1]="i*2 + 1" x2="200" [attr.y2]="i*2 + 1"
+              stroke="gray" *ngFor="let i of numbers"/>
+        <!--     pathLength="10" [attr.stroke-dasharray]="strokeDasharray$ | async"-->
+
+        <line [attr.x1]="i*2 + 1" y1="0" [attr.x2]="i*2 + 1" y2="200"
+              stroke="gray" *ngFor="let i of numbers"/>
+
+        <!--    <svg:rect [attr.x]="0" [attr.y]="0" [attr.width]="200" [attr.height]="200" [attr.fill]="'yellow'"-->
+        <!--    ></svg:rect>-->
+        <svg:g [attr.transform]="'translate(0)'">
+            <svg:g [rect]="{x: 50, y: 50, width: 100, height: 100, stroke: 'blue', fill: 'blue'}">
+            </svg:g>
+            <svg:rect [attr.x]="50" [attr.y]="50" [attr.width]="100" [attr.height]="100" [attr.stroke]="'green'"
+                      [attr.fill]="'green'"
+                      [attr.transform]="'rotate(45, 100, 100)'"
+            >
+                <animate attributeName="rx" values="0;50;0" dur="10s" repeatCount="indefinite"/>
+            </svg:rect>
+            <svg:circle [attr.cx]="100" [attr.cy]="100" [attr.r]="25" [attr.fill]="'red'">
+                <!--            <animateMotion dur="10s" repeatCount="indefinite"-->
+                <!--                           path="M20,50 C20,-50 18,15 18,50 C18-50 20,15 20,50 z" />-->
+            </svg:circle>
+            <svg:g [circle]="{cx: 100, cy: 100, r: 5, fill: 'orange'}">
+                <animateMotion dur="10s" repeatCount="indefinite"
+                               path="M20,50 C20,-50 18,15 18,50 C18-50 20,15 20,50 z"/>
+            </svg:g>
+
+        </svg:g>
+
+    </svg:g>
+
+    <svg:line *ngFor="let line of lines$ | async" [attr.x1]="line.x1" [attr.y1]="line.y1" [attr.x2]="line.x2"
+              [attr.y2]="line.y2" stroke="black"></svg:line>
+
+</svg>
+

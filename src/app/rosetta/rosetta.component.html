@@ -1,0 +1,67 @@
+<svg
+    #svg
+    width="100vh"
+    height="100vh"
+    viewBox="0 0 200 200"
+    xmlns="http://www.w3.org/2000/svg"
+>
+
+    <!--    <svg:line *ngFor="let line of lines$ | async" [attr.x1]="line.x1" [attr.y1]="line.y1" [attr.x2]="line.x2"-->
+    <!--              [attr.y2]="line.y2" stroke="black"></svg:line>-->
+
+
+<!--    <svg:g transform="translate(100,100) scale(1,-1)" #g>-->
+    <svg:g transform="translate(100,100)" #g>
+
+        <!--        <svg:path [attr.d]="'M 0 0 ' + (coordinates$ | async)" fill="transparent" stroke="red"/>-->
+
+        <!--        <svg:circle-->
+        <!--                [attr.cx]="circle.cx"-->
+        <!--                [attr.cy]="circle.cy"-->
+        <!--                [attr.r]="circle.r"-->
+        <!--                fill="transparent"-->
+        <!--                stroke="black"-->
+        <!--                stroke-width="0.1"-->
+        <!--                *ngIf="circle$ | async as circle"-->
+        <!--        >-->
+        <!--            <ng-content></ng-content>-->
+        <!--        </svg:circle>-->
+
+        <ng-container *ngFor="let band of bands$ | async">
+
+            <svg:line *ngFor="let line of band" [attr.x1]="line.x1" [attr.y1]="line.y1" [attr.x2]="line.x2"
+                      [attr.y2]="line.y2" stroke="black" stroke-width="0.1"></svg:line>
+
+        </ng-container>
+
+        <!--        <svg:line *ngFor="let line of lines$ | async" [attr.x1]="line.x1" [attr.y1]="line.y1" [attr.x2]="line.x2"-->
+        <!--                  [attr.y2]="line.y2" stroke="black" stroke-width="0.1"></svg:line>-->
+
+<!--                <svg:polygon [attr.points]="triangle.points" *ngFor="let triangle of triangles$ | async"-->
+<!--                         stroke="white" [attr.fill]="triangle.fill" stroke-width="0.1"/>-->
+    </svg:g>
+
+
+</svg>
+
+<pre>
+{{form.value | json}}
+</pre>
+
+<form [formGroup]="form" style="position: absolute; top: 20px; right: 20px; width: 400px">
+    <div formArrayName="bands">
+        <div style="display: flex; flex-direction: row; align-items: flex-start" *ngFor="let band of bands.controls; let i=index; let f=first; let l=last">
+            <div [formGroupName]="i">
+                <input type="number" formControlName="radius" placeholder="radius">
+                <input type="number" formControlName="parts" placeholder="parts">
+                <input formControlName="expr" placeholder="expr">
+            </div>
+            <button type="button" (click)="onRemove(i)" *ngIf="!(f && l)">remove</button>
+            <button type="button" (click)="onAdd()" *ngIf="l">add</button>
+        </div>
+    </div>
+    <!--    <button type="submit">submit</button>-->
+</form>
+
+<button (click)="download()" style="width: 300px; position: absolute; bottom: 10px; right: 10px">download</button>
+<div class="download" #downloadHandle></div>

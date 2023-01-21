@@ -1,0 +1,29 @@
+<svg:circle
+        class="circle"
+        [attr.cx]="point.x"
+        [attr.cy]="point.y"
+        [attr.r]="point.r"
+        [attr.transform]="point.transform"
+        [attr.stroke]="point.stroke"
+        [attr.style]="point.fill === 'transparent' ? 'fill:none' : ''"
+        [attr.stroke-width]="point.strokeWidth"
+        [class.bounce]="point.bounce"
+        *ngIf="point"
+></svg:circle>
+
+
+<svg:circle
+        [attr.cx]="circle.cx"
+        [attr.cy]="circle.cy"
+        [attr.r]="circle.r"
+        [attr.fill]="circle.fill"
+        *ngIf="circle"
+>
+    <ng-content></ng-content>
+</svg:circle>
+<!--<svg:circle-->
+<!--        [attr.cx]="point.centerX"-->
+<!--        [attr.cy]="point.centerY"-->
+<!--        [attr.r]="2"-->
+<!--        [attr.stroke]="point.stroke"-->
+<!--&gt;</svg:circle>-->

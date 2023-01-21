@@ -43,25 +43,32 @@
                             [class.bounce]="point.bounce"
                             *ngIf="point.type === 'rect'"
                     ></svg:rect>
-                    <svg:circle
-                            [attr.cx]="point.centerX"
-                            [attr.cy]="point.centerY"
-                            [attr.r]="2"
-                            [attr.stroke]="point.stroke"
-                            *ngIf="point.showCenter"
-                    ></svg:circle>
-                    <svg:circle
-                            class="circle"
-                            [attr.cx]="point.x"
-                            [attr.cy]="point.y"
-                            [attr.r]="point.width / 2"
-                            [attr.transform]="point.transform"
-                            [attr.stroke]="point.stroke"
-                            [attr.style]="point.fill === 'transparent' ? 'fill:none' : ''"
-                            [attr.stroke-width]="point.strokeWidth"
-                            [class.bounce]="point.bounce"
-                            *ngIf="point.type === 'circle'"
-                    ></svg:circle>
+                    <svg:g circle [point]="{x: point.centerX, y: point.centerY, stroke: point.stroke, r: 2}"
+                           *ngIf="point.showCenter"></svg:g>
+                    <!--                    <svg:circle-->
+                    <!--                            [attr.cx]="point.centerX"-->
+                    <!--                            [attr.cy]="point.centerY"-->
+                    <!--                            [attr.r]="2"-->
+                    <!--                            [attr.stroke]="point.stroke"-->
+                    <!--                            *ngIf="point.showCenter"-->
+                    <!--                    ></svg:circle>-->
+                    <svg:g circle [point]="{x: point.x, y: point.y, stroke: point.stroke,
+                    strokeWidth: point.strokeWidth, fill: point.fill, bounce: point.bounce, r: point.width / 2, transform: point.transform}"
+                           *ngIf="point.type === 'circle'"></svg:g>
+                    <!--                    <svg:g>-->
+                    <!--                                        <svg:circle-->
+                    <!--                                                class="circle"-->
+                    <!--                                                [attr.cx]="point.x"-->
+                    <!--                                                [attr.cy]="point.y"-->
+                    <!--                                                [attr.r]="point.width / 2"-->
+                    <!--                                                [attr.transform]="point.transform"-->
+                    <!--                                                [attr.stroke]="point.stroke"-->
+                    <!--                                                [attr.style]="point.fill === 'transparent' ? 'fill:none' : ''"-->
+                    <!--                                                [attr.stroke-width]="point.strokeWidth"-->
+                    <!--                                                [class.bounce]="point.bounce"-->
+                    <!--                                                *ngIf="point.type === 'circle'"-->
+                    <!--                                        ></svg:circle>-->
+                    <!--                    </svg:g>-->
                     <!--                [attr.fill]="point.fill"-->
                 </svg:g>
             </svg:g>

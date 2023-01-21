@@ -22,7 +22,9 @@
     "@angular/router": "~13.1.1",
     "@georgedoescode/spline": "^1.0.1",
     "@picocss/pico": "^1.4.1",
+    "dom-to-image-more": "^2.10.1",
     "file-saver": "^2.0.5",
+    "mathjs": "^10.6.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

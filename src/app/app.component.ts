@@ -13,7 +13,7 @@ import { combineLatest, interval, Observable, Subject, timer } from 'rxjs';
 import { map, startWith, switchMap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-root-1',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -125,6 +125,7 @@ export class AppComponent {
             return {
               x: coorX,
               y: coorY,
+              r: config.width / 2,
               centerX,
               centerY,
               stroke,
@@ -272,6 +273,7 @@ interface Layer {
 interface Point {
   x: number;
   y: number;
+  r?: number;
   centerX: number;
   centerY: number;
   stroke: Color;
